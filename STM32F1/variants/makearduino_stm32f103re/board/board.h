@@ -174,5 +174,11 @@ PA5			//D46,ADC_5|SCK_1|DAC_2
 
 #define LED_BUILTIN				PC13
 
+#define A0	PA0
+#define A1	PA1
+#define A2	PA2
+#define A3	PA3
+#define A4	PA4
+#define A5	PA5
 #endif
 

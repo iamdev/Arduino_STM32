@@ -25,7 +25,7 @@ makeArduinoF103.build.error_led_pin=13
 
 makeArduinoF103.menu.device_variant.STM32F103RE=MakeArduino STM32-F103RE (64k/512k)
 makeArduinoF103.menu.device_variant.STM32F103RE.build.variant=makearduino_stm32f103re
-makeArduinoF103.menu.device_variant.STM32F103RE.build.cpu_flags=-DMCU_STM32F103RE
+makeArduinoF103.menu.device_variant.STM32F103RE.build.cpu_flags=-DMCU_STM32F103RE -DMAKEARDUINO_STM32F103RE
 makeArduinoF103.menu.device_variant.STM32F103RE.upload.maximum_size=524288
 makeArduinoF103.menu.device_variant.STM32F103RE.upload.maximum_data_size=65536
 makeArduinoF103.menu.device_variant.STM32F103RE.build.ldscript=ld/stm32f103re.ld
