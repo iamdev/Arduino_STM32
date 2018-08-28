@@ -772,5 +772,8 @@ static spi_baud_rate determine_baud_rate(spi_dev *dev, uint32_t freq) {
     }
     return baud_rates[i];
 }
-
+#ifdef MAKEARDUINO_STM32F103RE
+SPIClass SPI(3);
+#else
 SPIClass SPI(1);
+#endif

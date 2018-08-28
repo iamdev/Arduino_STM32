@@ -41,10 +41,23 @@ makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.build.ldscript=ld/bootload
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.usbID=1EAF:0003
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.altID=2
 
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB=STM32duino bootloader (No USB Serial)
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.protocol=maple_dfu
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.tool=maple_upload
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.build.vect=VECT_TAB_ADDR=0x8002000
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.build.ldscript=ld/bootloader.ld
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.usbID=1EAF:0003
+makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.altID=2
+
 makeArduinoF103.menu.upload_method.STLinkMethod=STLink
 makeArduinoF103.menu.upload_method.STLinkMethod.upload.protocol=STLink
 makeArduinoF103.menu.upload_method.STLinkMethod.upload.tool=stlink_upload
 makeArduinoF103.menu.upload_method.STLinkMethod.build.upload_flags=-DSERIAL_USB
+
+makeArduinoF103.menu.upload_method.STLinkMethodNoUSB=STLink (No USB Serial)
+makeArduinoF103.menu.upload_method.STLinkMethodNoUSB.upload.protocol=STLink
+makeArduinoF103.menu.upload_method.STLinkMethodNoUSB.upload.tool=stlink_upload
+
 
 #-- CPU Clock frequency
 makeArduinoF103.menu.cpu_speed.speed_72mhz=72Mhz (Normal)

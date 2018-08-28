@@ -7,3 +7,6 @@
 [submodule "tools/src/texane-stlink"]
 	path = tools/src/texane-stlink
 	url = https://github.com/texane/stlink
+[submodule "STM32F1/libraries/SdFat"]
+	path = STM32F1/libraries/SdFat
+	url = https://github.com/greiman/SdFat.git

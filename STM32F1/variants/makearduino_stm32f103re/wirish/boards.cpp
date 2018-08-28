@@ -73,6 +73,7 @@ void init(void) {
     wirish::priv::board_setup_usb();
     wirish::priv::series_init();
     boardInit();
+    afio_cfg_debug_ports(AFIO_DEBUG_SW_ONLY);
 }
 
 /* Provide a default no-op boardInit(). */

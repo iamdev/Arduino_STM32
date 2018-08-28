@@ -94,6 +94,9 @@ namespace wirish {
         gpio_set_mode(GPIOC, 10, GPIO_OUTPUT_PP);
 		gpio_write_bit(GPIOC, 10, 1);
 		Serial.begin();// Roger Clark. Changed SerialUSB to Serial for Arduino sketch compatibility
+#else
+        gpio_set_mode(GPIOC, 10, GPIO_OUTPUT_PP);
+        gpio_write_bit(GPIOC, 10, 0);
 #endif
         }
 

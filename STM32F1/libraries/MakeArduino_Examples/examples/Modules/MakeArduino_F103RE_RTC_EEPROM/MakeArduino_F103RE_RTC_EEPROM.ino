@@ -114,7 +114,7 @@ void setup()
     tm_t mtt;    
     rtclock.breakTime(rtclock.now(), mtt);
     Serial.print("Internal RTC (LSE) timestamp:");
-    snprintf(s, 30,"%s %u %u, %s, %02u:%02u:%02u", months[mtt.month], mtt.day, mtt.year+1970, weekdays[mtt.weekday], mtt.hour, mtt.minute, mtt.second);
+    snprintf(s, 30,"%s %u %u, %s, %02u:%02u:%02u", months[mtt.month], mtt.day, mtt.year+1900, weekdays[mtt.weekday], mtt.hour, mtt.minute, mtt.second);
     Serial.println(s);
 
     digitalWrite(LED_BUILTIN,HIGH);

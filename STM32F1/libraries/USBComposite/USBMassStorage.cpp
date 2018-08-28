@@ -26,7 +26,7 @@ bool USBMassStorageDevice::registerComponent() {
 	return USBComposite.add(&usbMassPart, this);
 }
 
-void USBMassStorageDevice::setDrive(uint32 driveNumber, uint32 byteSize, MassStorageReader reader,
+void USBMassStorageDevice::setDrive(uint32 driveNumber, uint64 byteSize, MassStorageReader reader,
 	MassStorageWriter writer, MassStorageStatuser statuser, MassStorageInitializer initializer) {
 	if (driveNumber >= USB_MASS_MAX_DRIVES)
 		return;
