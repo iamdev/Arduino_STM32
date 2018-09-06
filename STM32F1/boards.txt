@@ -14,7 +14,7 @@ makeArduinoF103.pid.0=0x0004
 makeArduinoF103.build.variant=makearduino_stm32f103
 makeArduinoF103.build.vect=VECT_TAB_ADDR=0x8000000
 makeArduinoF103.build.core=maple
-makeArduinoF103.build.board=MAKEARDUINO_STM32F103RE
+makeArduinoF103.build.board=MAKEARDUINO_STM32F103R
 makeArduinoF103.upload.use_1200bps_touch=false
 makeArduinoF103.upload.file_type=bin
 makeArduinoF103.upload.auto_reset=true
@@ -25,11 +25,24 @@ makeArduinoF103.build.error_led_pin=13
 
 makeArduinoF103.menu.device_variant.STM32F103RE=MakeArduino STM32-F103RE (64k/512k)
 makeArduinoF103.menu.device_variant.STM32F103RE.build.variant=makearduino_stm32f103re
-makeArduinoF103.menu.device_variant.STM32F103RE.build.cpu_flags=-DMCU_STM32F103RE -DMAKEARDUINO_STM32F103RE
-makeArduinoF103.menu.device_variant.STM32F103RE.upload.maximum_size=524288
+makeArduinoF103.menu.device_variant.STM32F103RE.build.cpu_flags=-DMCU_STM32F103RE -DMAKEARDUINO_STM32F103R
+makeArduinoF103.menu.device_variant.STM32F103RE.upload.maximum_size=516096
 makeArduinoF103.menu.device_variant.STM32F103RE.upload.maximum_data_size=65536
-makeArduinoF103.menu.device_variant.STM32F103RE.build.ldscript=ld/stm32f103re.ld
+makeArduinoF103.menu.device_variant.STM32F103RE.build.ldscript=ld/bootloader.ld
 
+makeArduinoF103.menu.device_variant.STM32F103RC=MakeArduino STM32-F103RC (48k/256k)
+makeArduinoF103.menu.device_variant.STM32F103RC.build.variant=makearduino_stm32f103re
+makeArduinoF103.menu.device_variant.STM32F103RC.build.cpu_flags=-DMCU_STM32F103RC -DMAKEARDUINO_STM32F103R
+makeArduinoF103.menu.device_variant.STM32F103RC.upload.maximum_size=253952
+makeArduinoF103.menu.device_variant.STM32F103RC.upload.maximum_data_size=49152
+makeArduinoF103.menu.device_variant.STM32F103RC.build.ldscript=ld/bootloader_rc.ld
+
+makeArduinoF103.menu.device_variant.STM32F103RB=MakeArduino STM32-F103RB (20k/128k)
+makeArduinoF103.menu.device_variant.STM32F103RB.build.variant=makearduino_stm32f103re
+makeArduinoF103.menu.device_variant.STM32F103RB.build.cpu_flags=-DMCU_STM32F103RB -DMAKEARDUINO_STM32F103R
+makeArduinoF103.menu.device_variant.STM32F103RB.upload.maximum_size=122880
+makeArduinoF103.menu.device_variant.STM32F103RB.upload.maximum_data_size=20480
+makeArduinoF103.menu.device_variant.STM32F103RB.build.ldscript=ld/bootloader_rb.ld
 #---------------------------- UPLOAD METHODS ---------------------------
 
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB=STM32duino bootloader
@@ -37,7 +50,7 @@ makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.protocol=maple_dfu
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.tool=maple_upload
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.build.upload_flags=-DSERIAL_USB
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.build.vect=VECT_TAB_ADDR=0x8002000
-makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.build.ldscript=ld/bootloader.ld
+#makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.build.ldscript=ld/bootloader.ld
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.usbID=1EAF:0003
 makeArduinoF103.menu.upload_method.DFUUploadMethodUSB.upload.altID=2
 
@@ -49,14 +62,30 @@ makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.build.ldscript=ld/bootlo
 makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.usbID=1EAF:0003
 makeArduinoF103.menu.upload_method.DFUUploadMethodNoUSB.upload.altID=2
 
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK=MakeArduino STM32 bootloader
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.upload.protocol=maple_dfu
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.upload.tool=maple_upload
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.build.vect=VECT_TAB_ADDR=0x8005000
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.build.ldscript=ld/flash.ld
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.upload.altID=1
+#makeArduinoF103.menu.upload_method.DFUUploadMethodMAK.upload.usbID=1EAF:0003
+
 makeArduinoF103.menu.upload_method.STLinkMethod=STLink
 makeArduinoF103.menu.upload_method.STLinkMethod.upload.protocol=STLink
 makeArduinoF103.menu.upload_method.STLinkMethod.upload.tool=stlink_upload
+makeArduinoF103.menu.upload_method.STLinkMethod.build.vect=VECT_TAB_ADDR=0x8002000
 makeArduinoF103.menu.upload_method.STLinkMethod.build.upload_flags=-DSERIAL_USB
 
 makeArduinoF103.menu.upload_method.STLinkMethodNoUSB=STLink (No USB Serial)
 makeArduinoF103.menu.upload_method.STLinkMethodNoUSB.upload.protocol=STLink
+makeArduinoF103.menu.upload_method.STLinkMethodNoUSB.build.vect=VECT_TAB_ADDR=0x8002000
 makeArduinoF103.menu.upload_method.STLinkMethodNoUSB.upload.tool=stlink_upload
+
+#makeArduinoF103.menu.upload_method.STLinkMethod5=STLink (0x5000)
+#makeArduinoF103.menu.upload_method.STLinkMethod5.upload.protocol=STLink
+#makeArduinoF103.menu.upload_method.STLinkMethod5.upload.tool=stlink_upload
+#makeArduinoF103.menu.upload_method.STLinkMethod5.build.vect=VECT_TAB_ADDR=0x8005000
+#makeArduinoF103.menu.upload_method.STLinkMethod5.build.upload_flags=-DSERIAL_USB
 
 
 #-- CPU Clock frequency

@@ -23,8 +23,8 @@
     #include "pin_magic_MEGA.h"
 #endif
 
-#if defined (MAKEARDUINO_STM32F103RE)
-    #include "pin_magic_MKA_F103RE.h"
+#if defined (MAKEARDUINO_STM32F103R)
+    #include "pin_magic_MKA_F103R.h"
 #endif
 
 

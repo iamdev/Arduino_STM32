@@ -32,37 +32,43 @@
  * See maple.h for more information on these definitions.
  */
 
-#ifndef _BOARDS_MAKEARDUINO_STM32F103RE_H_
-#define _BOARDS_MAKEARDUINO_STM32F103RE_H_
+#ifndef _BOARDS_MAKEARDUINO_STM32F103R_H_
+#define _BOARDS_MAKEARDUINO_STM32F103R_H_
 
 /* A few of these values will seem strange given that it's a
  * high-density board. */
-#define CYCLES_PER_MICROSECOND  72
+#define CYCLES_PER_MICROSECOND  (F_CPU / 1000000U)
 #define SYSTICK_RELOAD_VAL     (F_CPU/1000) - 1 /* takes a cycle to reload */
 
 // USARTS
+#ifdef MCU_STM32F103RE
 #define BOARD_NR_USARTS         5
+#else
+#define BOARD_NR_USARTS         3
+#endif
 #define BOARD_USART1_TX_PIN     PA9
 #define BOARD_USART1_RX_PIN     PA10
-
 #define BOARD_USART2_TX_PIN     PA2
 #define BOARD_USART2_RX_PIN     PA3
-
 #define BOARD_USART3_TX_PIN     PB10
 #define BOARD_USART3_RX_PIN     PB11
-
+#ifdef MCU_STM32F103RE
 #define BOARD_USART4_TX_PIN     PC10 /* USB_DESC*/
 #define BOARD_USART4_RX_PIN     PC11
-
 #define BOARD_USART5_TX_PIN     PC12
 #define BOARD_USART5_RX_PIN     PD2
+#endif
 
 /* Note:
  *
  * SPI3 is unusable due to pin 43 (PB4) and NRST tie-together :(, but
  * leave the definitions so as not to clutter things up.  This is only
  * OK since RET6 Ed. is specifically advertised as a beta board. */
+#ifdef MCU_STM32F103RE
 #define BOARD_NR_SPI            3
+#else
+#define BOARD_NR_SPI            2
+#endif
 #define BOARD_SPI1_NSS_PIN      PA4
 #define BOARD_SPI1_SCK_PIN      PA5
 #define BOARD_SPI1_MISO_PIN     PA6
@@ -73,11 +79,12 @@
 #define BOARD_SPI2_MISO_PIN     PB14
 #define BOARD_SPI2_MOSI_PIN     PB15
 
+#ifdef MCU_STM32F103RE
 #define BOARD_SPI3_NSS_PIN      PA15
 #define BOARD_SPI3_SCK_PIN      PB3
 #define BOARD_SPI3_MISO_PIN     PB4
 #define BOARD_SPI3_MOSI_PIN     PB5
-
+#endif
 
 /* GPIO A to E = 5 * 16  - BOOT1 not used = 79*/
 #define BOARD_NR_GPIO_PINS      47

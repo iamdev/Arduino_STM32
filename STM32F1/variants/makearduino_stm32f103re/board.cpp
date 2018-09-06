@@ -80,6 +80,8 @@ extern const stm32_pin_info PIN_MAP[BOARD_NR_GPIO_PINS] = {
 */
 
 	/* Top header */	
+
+#ifdef MCU_STM32F103RE
 { &gpioa, &timer1, NULL , 10, 3, ADCx},// D0 |PA10,		//TIM1_3|RX_1
 { &gpioa, &timer1, NULL , 9 , 2, ADCx},// D1 |PA9	,	//TIM1_2|TX_1
 { &gpioc, NULL   , &adc1, 2 , 0, 12  },// D2 |PC2	,	//ADC_12
@@ -134,6 +136,63 @@ extern const stm32_pin_info PIN_MAP[BOARD_NR_GPIO_PINS] = {
 { &gpioa, &timer5, &adc1, 3 , 4, 3   },// D44,A3|PA3	,	//ADC_3|TIM2_4|TIM5_4|RX_2
 { &gpioa, NULL   , &adc1, 4 , 0, 4   },// D45,A4|PA4	,	//ADC_4|NSS_1|DAC_1
 { &gpioa, NULL   , &adc1, 5 , 0, 5   } // D46,A5|PA5		//ADC_5|SCK_1|DAC_2
+#else
+{ &gpioa, &timer1, NULL , 10, 3, ADCx},// D0 |PA10,		//TIM1_3|RX_1
+{ &gpioa, &timer1, NULL , 9 , 2, ADCx},// D1 |PA9	,	//TIM1_2|TX_1
+{ &gpioc, NULL   , &adc1, 2 , 0, 12  },// D2 |PC2	,	//ADC_12
+{ &gpioc, NULL   , &adc1, 3 , 0, 13  },// D3 |PC3	,	//ACD_13
+{ &gpioc, NULL   , &adc1, 4 , 0, 14  },// D4 |PC4	,	//ADC_14	
+{ &gpioc, NULL   , &adc1, 5 , 0, 15  },// D5 |PC5	,	//ADC_15
+{ &gpioc, &timer3, NULL , 6 , 1, ADCx},// D6 |PC6	,	//TIM3_1|TIM8_1|I2S2_MCK
+{ &gpioc, &timer3, NULL , 7 , 2, ADCx},// D7 |PC7	,	//TIM3_2|TIM8_2|I2S3_MCK
+
+{ &gpioc, NULL   , &adc1, 0 , 0, 10	},// D8 |PC0	,	//ADC_10
+{ &gpioc, NULL   , &adc1, 1 , 0, 11	},// D9 |PC1	,	//ADC_11
+{ &gpioa, &timer2, NULL , 15, 1, ADCx},// D10|PA15,		//NSS_1|NSS_3|TIM2_1|I2S3_WS
+{ &gpiob, &timer3, NULL , 5 , 2, ADCx},// D11|PB5	,	//MOSI_3|MOSI_1|TIM3_2|I2S3_SD
+{ &gpiob, &timer3, NULL , 4 , 1, ADCx},// D12|PB4	,	//MISO_3|MISO_1|TIM3_1
+{ &gpiob, &timer2, NULL , 3 , 2, ADCx},// D13|PB3	,	//SCK_3|SCK_1|TIM2_2|I2S3_CK
+
+{ &gpiob, &timer4, NULL , 7 , 2, ADCx},// D14|PB7	,	//SDA_1|TIM4_2|RX_1
+{ &gpiob, &timer4, NULL , 6 , 1, ADCx},// D15|PB6	,	//SCL_1|TIM4_1|TX_1
+
+{ &gpioc, &timer3, NULL , 8 , 3, ADCx},// D16|PC8	,	//TIM3_3|TIM8_3|SDIO_D0
+{ &gpioc, &timer3, NULL , 9 , 4, ADCx},// D17|PC9	,	//TIM3_4|TIM8_4|SDIO_D1	
+{ &gpiob, &timer4, NULL , 8 , 3, ADCx},// D18|PB8	,	//CAN_RX|SCL_1|TIM4_3|SDIO_D4
+{ &gpiob, &timer4, NULL , 9 , 4, ADCx},// D19|PB9	,	//CAN_TX|SDA_1|TIM4_4|SDIO_D5
+{ &gpiob, &timer2, NULL , 10, 3, ADCx},// D20|PB10,		//SCL_2|TX_3|TIM2_3
+{ &gpiob, &timer2, NULL , 11, 4, ADCx},// D21|PB11,		//SDA_2|RX_3|TIM2_4
+ 
+{ &gpiod, NULL   , NULL , 2 , 0, ADCx},// D22|PD2	,	//RX_5|SDIO_CMD
+{ &gpioc, NULL   , NULL , 11, 0, ADCx},// D23|PC11,		//RX_3|RX_4|SDIO_D3
+{ &gpioc, NULL   , NULL , 12, 0, ADCx},// D24|PC12,		//TX_5|SDIO_CK
+{ &gpioa, &timer3, &adc1, 6 , 1, 6	 },// D25|PA6	,	//ADC_6|TIM3_1|MISO_1
+{ &gpioa, &timer3, &adc1, 7 , 2, 7	 },// D26|PA7	,	//ADC_7|TIM3_2|MOSI_1
+{ &gpioa, &timer1, NULL , 8 , 1, ADCx},// D27|PA8	,	//TIM1_1
+
+{ &gpiob, &timer3, &adc1, 1 , 4, 9   },// D28|PB1	,	//ADC_9|TIM3_4
+{ &gpiob, NULL	 , NULL , 12, 0, ADCx},// D29|PB12,		//NSS_2
+{ &gpiob, NULL	 , NULL , 2 , 0, ADCx},// D30|PB2	,	
+{ &gpiob, NULL	 , NULL , 15, 0, ADCx},// D31|PB15,		//MOSI_2
+{ &gpiob, NULL	 , NULL , 13, 0, ADCx},// D32|PB13,		//SCK_2
+{ &gpiob, &timer3, &adc1, 0 , 3, 8   },// D33|PB0	,	//ADC_8|TIM3_3
+
+{ &gpiob, NULL   , NULL , 14, 0, ADCx},// D34|PB14,
+{ &gpioc, NULL   , NULL , 13, 0, ADCx},// D35|PC13,LED_BUILDIN
+{ &gpioc, NULL   , NULL , 10, 0, ADCx},// D36|PC10,USB_DISC
+{ &gpioa, NULL   , NULL , 11, 0, ADCx},// D37|PA11,USB_DM
+{ &gpioa, NULL   , NULL , 12, 0, ADCx},// D38|PA12,USB_DP
+{ &gpioa, NULL   , NULL , 13, 0, ADCx},// D39|PA13,SWDIO
+{ &gpioa, NULL   , NULL , 14, 0, ADCx},// D40|PA14,SWCLK
+
+{ &gpioa, &timer2, &adc1, 0 , 1, 0   },// D41,A0|PA0	,	//ADC_0|TIM2_1|TIM5_1|WKUP
+{ &gpioa, &timer2, &adc1, 1 , 2, 1   },// D42,A1|PA1	,	//ADC_1|TIM2_2|TIM5_2
+{ &gpioa, &timer2, &adc1, 2 , 3, 2   },// D43,A2|PA2	,	//ADC_2|TIM2_3|TIM5_3|TX_2
+{ &gpioa, &timer2, &adc1, 3 , 4, 3   },// D44,A3|PA3	,	//ADC_3|TIM2_4|TIM5_4|RX_2
+{ &gpioa, NULL   , &adc1, 4 , 0, 4   },// D45,A4|PA4	,	//ADC_4|NSS_1|DAC_1
+{ &gpioa, NULL   , &adc1, 5 , 0, 5   } // D46,A5|PA5		//ADC_5|SCK_1|DAC_2
+
+#endif
 };
 
 /*  Basically everything that is defined as having a timer us PWM */
@@ -169,15 +228,15 @@ extern const uint8 boardUsedPins[BOARD_NR_USED_PINS] __FLASH__ = {
  * As its a High Density device (F103RE), it has 6 hardware serial devices. 
  */		
 
-#ifdef SERIAL_USB
 DEFINE_HWSERIAL(Serial1, 1);
 DEFINE_HWSERIAL(Serial2, 2);
 DEFINE_HWSERIAL(Serial3, 3);
-DEFINE_HWSERIAL_UART(Serial4, 5);
-#else
-DEFINE_HWSERIAL(Serial, 1);
-DEFINE_HWSERIAL(Serial1, 2);
-DEFINE_HWSERIAL(Serial2, 3);
-DEFINE_HWSERIAL_UART(Serial3, 5);
+#ifdef MCU_STM32F103RE
+DEFINE_HWSERIAL_UART(Serial4, 4);
+DEFINE_HWSERIAL_UART(Serial5, 5);
+#endif
+
+#ifndef SERIAL_USB
+#define Serial Serial1
 #endif
 
